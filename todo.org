@@ -1,0 +1,33 @@
+#+TITLE: Project Outline
+
+* Key Features
+** Commit Tree
+*** Node: every node is a commit
+**** Has a commit "object"
+**** Pointer to all of it's children (subsequent commits)
+*** find_node: find a given commit in the tree
+**** Use a DFS/BFS or whatever
+*** Maintain current HEAD
+** Commit "Object"
+*** Each commit has
+**** Commit author, hash, timestamp, message, staged files, and tree.
+*** generate_hash(T)
+**** given the commit metadata, generate a commit hash
+*** get_repo_tree()
+**** snapshot the current repository directory.
+** File "Object"
+*** Each file has
+**** The file itself in a binary format, metadata, and a hash
+*** generate_hash(blob)
+**** given the blob binary data, generate a SHA1 hash
+*** not sure what else
+** Branch functionality
+** Commit functionality
+*** Determine staged files
+** Diff functionality
+** Status functionality
+
+
+* Not so Key Features
+** gitignore
+**
