@@ -21,6 +21,10 @@
 *** generate_hash(blob)
 **** given the blob binary data, generate a SHA1 hash
 *** not sure what else
+** Tree "Object"
+*** Root is a hash of the full tree
+**** Points to either a file "object" hash or a sub-tree "hash"
+*** Find some hash within the tree
 ** Branch functionality
 ** Commit functionality
 *** Determine staged files
