@@ -25,7 +25,7 @@ class Tree {
 
     public:
         //Constructor
-        Tree();
+        Tree(T data);
 
         //Manipulation
         void add_child(std::unique_ptr<Node> parent, T data);
