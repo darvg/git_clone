@@ -22,24 +22,26 @@ class Tree {
 
     private:
         std::unique_ptr<Node> root;
+        int size;
 
     public:
         //Constructor
         Tree(T data);
 
         //Manipulation
-        void add_child(std::unique_ptr<Node> parent, T data);
+        void add_child(std::unique_ptr<Node> parent, std::unique_ptr<Node> child);
 
-        bool insert_node(T data);
+        bool insert_node(std::unique_ptr<Node> parent, T data, std::unique_ptr<Node> child = NULL);
 
         bool delete_node(T data);
 
-        //getters & setters
+        //accessors
         std::unique_ptr<Node> get_node(T data);
 
-        void set_data(std::unique_ptr<Node> n, T d_new);
+        void set_data(std::unique_ptr<Node> n, T d_new) { n->data = d_new; }
 
-        T get_root();
+        T get_root() { return root->data; };
+        int get_size() { return size; }
 
 };
 
