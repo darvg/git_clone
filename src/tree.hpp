@@ -18,6 +18,14 @@ class Tree {
                 children = NULL;
                 parent = NULL;
             }
+
+            bool is_leaf() {
+                if (children == NULL) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
         };
 
     private:
@@ -33,10 +41,10 @@ class Tree {
 
         bool insert_node(std::unique_ptr<Node> parent, T data, std::unique_ptr<Node> child = NULL);
 
-        bool delete_node(T data);
+        bool delete_node(std::unique_ptr<Node> del);
 
         //accessors
-        std::unique_ptr<Node> get_node(T data);
+        std::unique_ptr<Node> get_node(std::unique_ptr<Node> start, T data);
 
         void set_data(std::unique_ptr<Node> n, T d_new) { n->data = d_new; }
 

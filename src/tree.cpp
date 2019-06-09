@@ -41,3 +41,30 @@ bool Tree<T>::insert_node(std::unique_ptr<Node> parent, T data, std::unique_ptr<
         (parent->children).push_back(add);
     }
 }
+
+template <typename T>
+bool Tree<T>::delete_node(std::unique_ptr<Node> del) {
+    std::unique_ptr<Node> temp = del;
+    std::unique_ptr<Node> parent = del->parent;
+
+    if(del->children == NULL) {
+        (parent->children).erase(del);
+    } else {
+        (parent->children).erase(del);
+        (parent->children).insert((parent->children).end(),
+                                  (temp->children).begin(),
+                                  (temp->children).end());
+    }
+}
+
+template <typename T>
+std::unique_ptr<typename Tree<T>::Node> Tree<T>::get_node(std::unique_ptr<Node> start, T data) {
+    if (start->data == data) {
+        return start;
+    } else if (start->is_leaf()) {
+        return;
+    } else {
+        for (std::unique_ptr<Node> child : start->children)
+            return get_node(child, data);
+    }
+}
