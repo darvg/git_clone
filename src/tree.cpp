@@ -69,7 +69,7 @@ std::unique_ptr<typename Tree<T>::Node> Tree<T>::get_node(std::unique_ptr<Node> 
     if (start->data == data) {
         return start;
     } else if (start->is_leaf()) {
-        return;
+        return NULL;
     } else {
         for (std::unique_ptr<Node> child : start->children)
             return get_node(child, data);

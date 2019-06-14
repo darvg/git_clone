@@ -1,4 +1,4 @@
-#include "hash.hpp"
+#include "../include/hash.hpp"
 
 std::string generate_hash(std::string author, std::string tree_hash, std::string timestamp, std::string message) {
     std::string comb = author + tree_hash + timestamp + message;
